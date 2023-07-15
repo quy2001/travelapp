@@ -7,6 +7,7 @@ import 'package:travelapp/core/constants/textstyle_constants.dart';
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({super.key, required this.title, required this.ontap});
   //khai báo biến xong phải định nghĩa
+
   final String title;
   final Function()? ontap;
   @override

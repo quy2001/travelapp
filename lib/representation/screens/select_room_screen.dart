@@ -4,6 +4,7 @@ import 'package:travelapp/representation/widgets/app_bar_container.dart';
 
 import '../../core/helpers/asset_helper.dart';
 import '../widgets/item_room_booking_widget.dart';
+import 'check_out_screen.dart';
 class SelectRoomScreen extends StatefulWidget {
   const SelectRoomScreen({super.key});
 
@@ -44,7 +45,11 @@ class _SelectRoomScreenState extends State<SelectRoomScreen> {
         tittleString: 'Select room',
         child: SingleChildScrollView(
           child: Column(
-            children: listRoom.map((e) => ItemRoomBookingWidget(roomModel: e)).toList(),
+            children: listRoom.map((e) => ItemRoomBookingWidget(roomModel: e,
+              onTap: (){
+                Navigator.of(context).pushNamed(CheckOutScreen.routeName,arguments: e);
+              },
+            )).toList(),
           ),
         ));;
   }

@@ -3,7 +3,6 @@ import 'package:travelapp/core/constants/dismension_constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travelapp/core/helpers/asset_helper.dart';
 import 'package:travelapp/core/helpers/image_helper.dart';
-import '../../core/constants/color_constants.dart';
 import '../../core/constants/textstyle_constants.dart';
 import '../widgets/app_bar_container.dart';
 import 'hotel_booking_screen.dart';

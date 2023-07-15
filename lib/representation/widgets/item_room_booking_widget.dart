@@ -3,62 +3,78 @@ import 'package:travelapp/core/constants/dismension_constants.dart';
 import 'package:travelapp/core/helpers/image_helper.dart';
 import 'package:travelapp/data/models/room_model.dart';
 import '../../core/constants/color_constants.dart';
-import '../screens/splash_screen.dart';
+import '../../core/constants/textstyle_constants.dart';
+import '../screens/check_out_screen.dart';
 import 'button_widget.dart';
+import 'dashline_widget.dart';
 import 'item_untility_hotel_widget.dart';
 
 class ItemRoomBookingWidget extends StatelessWidget {
-  const ItemRoomBookingWidget({super.key, required this.roomModel});
+  const ItemRoomBookingWidget({super.key, required this.roomModel, this.onTap, this.numberOfRoom});
 
   final RoomModel roomModel;
+  final Function()? onTap;
+  final int? numberOfRoom;
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: kMediumPadding),
       padding: EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(
-          Radius.circular(kItemPadding),
+          Radius.circular(kMediumPadding),
         ),
       ),
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  Text(roomModel.roomName),
-                  SizedBox(height: kMinPadding,),
-                  Text('Room size: ${roomModel.size.toString()} m2'),
-                  SizedBox(height: kMinPadding,),
-                  Text(roomModel.utility),
-                ],
+              Expanded(
+                flex: 7,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(roomModel.roomName,
+                      style: TextStyles.defaultStyle.fontHeader.bold,
+                    ),
+                    SizedBox(height: kMinPadding,),
+                    Text('Room size: ${roomModel.size} m2',
+                    maxLines: 2,
+                    ),
+                    SizedBox(height: kMinPadding,),
+                    Text(roomModel.utility),
+                  ],
+                ),
               ),
               SizedBox(width: kDefaultPadding,),
-              ImageHelper.loadFromAsset(roomModel.roomImage,
-              radius: BorderRadius.all(
-                  Radius.circular(kMinPadding)
-                 ),
+              Expanded(
+                flex: 3,
+                child: ImageHelper.loadFromAsset(roomModel.roomImage,
+                radius: BorderRadius.all(
+                    Radius.circular(kItemPadding)
+                   ),
+                ),
               ),
             ],
           ),
           ItemUntilityHotelWidget(),
-          SplashScreen(),
+          DashLineWidget(),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('\$4.5}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  children:[
+                    Text(
+                      '\$${roomModel.price.toString()}',
+                      style: TextStyles.defaultStyle.fontHeader.bold,
                     ),
                     SizedBox(
-                      height: kDefaultPadding,
+                      height: kMinPadding,
                     ),
                     Text('/night',
                       style: TextStyle(
@@ -68,14 +84,24 @@ class ItemRoomBookingWidget extends StatelessWidget {
                   ],
                 ),
               ),
+              // Expanded(
+              //   flex: 3,
+              //   child: ButtonWidget(
+              //       title: 'Choose',
+              //       ontap: onTap,
+              //   ),
+              // ),
               Expanded(
-                flex: 3,
-                child: ButtonWidget(
-                    title: 'Choose',
-                    ontap: (){
-                    }
+                child: numberOfRoom == null
+                    ? ButtonWidget(
+                  title: 'Choose',
+                  ontap: onTap,
+                )
+                    : Text(
+                  '$numberOfRoom room',
+                  textAlign: TextAlign.end,
                 ),
-              ),
+              )
             ],
           ),
         ],
