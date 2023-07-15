@@ -6,9 +6,11 @@ import 'package:travelapp/representation/screens/hotels_screen.dart';
 import 'package:travelapp/representation/screens/intro_screen.dart';
 import 'package:travelapp/representation/screens/main_app.dart';
 import 'package:travelapp/representation/screens/select_date_screen.dart';
+import 'package:travelapp/representation/screens/select_room_screen.dart';
 import 'package:travelapp/representation/screens/splash_screen.dart';
 
 import 'data/models/hotel_model.dart';
+import 'data/models/room_model.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
@@ -18,6 +20,8 @@ final Map<String, WidgetBuilder> routes = {
   HotelBookingScreen.routeName: (context) => const HotelBookingScreen(),
   SelectDateScreen.routeName: (context) => SelectDateScreen(),
   AddGuestRoomScreen.routeName: (context) => AddGuestRoomScreen(),
+  SelectRoomScreen.routeName: (context) => SelectRoomScreen(),
+
 };
 
 MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {

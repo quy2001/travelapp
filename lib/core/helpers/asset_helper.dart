@@ -32,5 +32,13 @@ class AssetHelper{
   static const String icoRestaurant ='assets/icons/ico_restaurant.png';
   static const String icoWifi ='assets/icons/ico_wifi.png';
   static const String icoWifiOrange ='assets/icons/ico_wifi_orange.png';
+  static const String imageKorea ='assets/images/korea.png';
+  static const String imageTurkey ='assets/images/turkey.png';
+  static const String imageDubai ='assets/images/dubai.png';
+  static const String imageJapan ='assets/images/japan.png';
+  static const String imageRoom1 ='assets/images/image_room1.png';
+  static const String imageRoom2 ='assets/images/image_room2.png';
+  static const String imageRoom3 ='assets/images/image_room3.png';
+
 
 }

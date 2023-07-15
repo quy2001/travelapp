@@ -7,7 +7,6 @@ import '../widgets/item_hotel_widget.dart';
 
 class HotelsScreen extends StatefulWidget {
   const HotelsScreen({super.key});
-
   static const String routeName='/hotels_screen';
 
   @override

@@ -4,10 +4,13 @@ import 'package:travelapp/core/constants/dismension_constants.dart';
 import 'package:travelapp/core/helpers/image_helper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travelapp/data/models/hotel_model.dart';
+import 'package:travelapp/data/models/room_model.dart';
+import 'package:travelapp/representation/screens/select_room_screen.dart';
 import 'package:travelapp/representation/widgets/button_widget.dart';
 import 'package:travelapp/representation/widgets/dashline_widget.dart';
 
 import '../../core/helpers/asset_helper.dart';
+import '../widgets/item_untility_hotel_widget.dart';
 
 class HotelDetailScreen extends StatefulWidget {
   const HotelDetailScreen({super.key, required this.hotelModel});
@@ -165,10 +168,14 @@ class _HotelDetailScreenState extends State<HotelDetailScreen> {
                             SizedBox(height: kDefaultPadding,),
                             Text('Located in the famous neighborhood of Seoul,Grand Luxury’s is set in a building built in the 2010s.',
                             ),
+                            ItemUntilityHotelWidget(),
                             SizedBox(height: kDefaultPadding,),
                             ImageHelper.loadFromAsset(AssetHelper.imageMap),
                             SizedBox(height: kDefaultPadding*2,),
-                            ButtonWidget(title: 'SELECT ROOM', ontap: (){}),
+                            ButtonWidget(title: 'SELECT ROOM', ontap: (){
+                              Navigator.of(context).pushNamed(SelectRoomScreen.routeName);
+                            }),
+                            SizedBox(height: kDefaultPadding*2,),
                           ],
                        ),
                       ),
